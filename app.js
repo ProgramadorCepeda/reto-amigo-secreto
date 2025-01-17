@@ -3,8 +3,15 @@ let resultado = document.getElementById("resultado");
 let listaDesplegable = document.getElementById("listaAmigos");
 
 
-function textosIniciales(){
+function textoInicial(){
+    let amigo = document.getElementById("amigo");
+    amigo.value = "";
+    
+}
 
+function resetListas(){
+    listaDesplegable.innerHTML = "";
+    arrayAmigos = [];
 }
 
 function sortearAmigo(){ //Esta funcion hace el sorteo de los amigos
@@ -12,7 +19,9 @@ function sortearAmigo(){ //Esta funcion hace el sorteo de los amigos
     let li = document.createElement("li");
     li.innerHTML = seleccionado;
     resultado.appendChild(li);
-    
+    textoInicial();
+    resetListas();
+
     
 }
 
@@ -23,6 +32,7 @@ function mostrarLista(arrayAmigos){ //Esta funcion muestra la lista del array ac
         let li = document.createElement("li");
         li.innerHTML = elemento;
         listaDesplegable.appendChild(li);
+        
     }
     
 }
@@ -31,11 +41,14 @@ function agregarAmigo(){  //Esta funcion añade al amigo al array
     let amigo = document.getElementById("amigo").value;
     if (amigo == ''){
         alert('Digite un nombre valido por favor');
+        
     } else{
         arrayAmigos.push(amigo);
-        amigo.value = '';
+        textoInicial();
+        amigo.value = "";
         amigo.innerHTML = '';   
         console.log(arrayAmigos);
+        mostrarLista(arrayAmigos);
     }
-    mostrarLista(arrayAmigos);
+       
 }
