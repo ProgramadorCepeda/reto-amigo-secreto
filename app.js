@@ -20,8 +20,10 @@ function mostrarLista(arrayAmigos){ //Esta funcion muestra la lista del array ac
 
     for (let i = 0; i<arrayAmigos.length; i++){
         let elemento = arrayAmigos[i]
-        listaDesplegable.push = elemento;
-        listaDesplegable.innerHTML = elemento;
+        let li = document.createElement("li");
+        li.innerHTML = elemento;
+        listaDesplegable.appendChild(li);
+        
     }
 
     
